@@ -13,6 +13,6 @@ Requirements: PHP 8.0, MySQL 8.*, NGINX/Apache
   - BUSINESS_OWNER_MAIL_ADDRESS=your_email@gmail.com (optional)
 - php artisan serve
 
-In order to inspect mail notification provide working smtp credentials in .env file or set default mail driver to "log"
+In order to inspect mail notifications provide working smtp credentials in .env file or set default mail driver to "log"
   
 ### Enjoy!!!
