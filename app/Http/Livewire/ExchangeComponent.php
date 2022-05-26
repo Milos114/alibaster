@@ -77,9 +77,7 @@ class ExchangeComponent extends Component
      */
     protected function getAmount(): void
     {
-        $this->result = number_format(
-            $this->calculateTotalAmount(), 2
-        );
+        $this->result = $this->calculateTotalAmount();
 
         $this->showResult = true;
     }

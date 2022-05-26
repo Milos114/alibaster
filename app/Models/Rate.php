@@ -24,10 +24,7 @@ class Rate extends Model
 
     public function calculateSurchargeDollars($rawAmount): float|int
     {
-        $surchargePercent = match ((int)$this->id) {
-            self::EURO, self::GBP => 5,
-            self::JPY => 7.5,
-        };
+        $surchargePercent = $this->surchargePercent();
 
         return $rawAmount / 100 * $surchargePercent;
     }
@@ -39,5 +36,13 @@ class Rate extends Model
         }
 
         return null;
+    }
+
+    public function surchargePercent(): int|float
+    {
+        return match ((int)$this->id) {
+            self::EURO, self::GBP => 5,
+            self::JPY => 7.5,
+        };
     }
 }

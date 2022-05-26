@@ -24,7 +24,7 @@
                 <div class="form-group col-md-6">
                     <label for="amount">USD (calculated surcharge{{(int)$currency === \App\Models\Rate::EURO ? ' and discount' : ''}})</label>
                     <div class="form-control" readonly>
-                        {{$result}}
+                        {{round($result, 2)}}
                     </div>
                 </div>
             @endif

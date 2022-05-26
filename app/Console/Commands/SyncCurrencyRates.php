@@ -31,12 +31,6 @@ class SyncCurrencyRates extends Command
     {
         $rates = $rateSync->fetch()['quotes'];
 
-//        $rates = [
-//            "USDEUR" => 0.512101,
-//            "USDGBP" => 0.4214803,
-//            "USDJPY" => 126.535982
-//        ];
-
         collect($rates)->each(fn($val, $currency) => DB::table('rates')
             ->where('currency', substr($currency, 3))
             ->update([
