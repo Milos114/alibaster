@@ -57,6 +57,8 @@ class ExchangeComponent extends Component
         OrderPurchase::process(amount: $this->amount, currency: $this->currency, usd: $this->result,
             surchargeDollars: $this->surchargeDollars, discountDollars: $this->discountDollars);
 
+        $this->emit('currencyPurchased');
+
         $this->dispatchBrowserEvent('purchase:success', [
             'toast' => true,
             'showConfirmButton' => false,

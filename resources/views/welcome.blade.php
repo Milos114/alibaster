@@ -22,7 +22,12 @@
 </head>
 <body class="">
 <div class="container">
-    <livewire:exchange-component />
+    <div>
+        <livewire:exchange-component />
+    </div>
+    <div class="mt-5">
+        <livewire:orders-component />
+    </div>
 </div>
 @include('sweetalert::alert')
 
