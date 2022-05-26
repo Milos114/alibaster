@@ -7,9 +7,12 @@ Requirements: PHP 8.0, MySQL 8.*, NGINX/Apache
 - git clone
 - composer install
 - php artisan migrate
-  - in .env add variables: 
-  API_KEY=your_api_key, 
-  SWEET_ALERT_ALWAYS_LOAD_JS=true
-
+- in .env add variables:
+  - API_KEY=your_api_key,
+  - SWEET_ALERT_ALWAYS_LOAD_JS=true,
+  - BUSINESS_OWNER_MAIL_ADDRESS=your_email@gmail.com (optional)
 - php artisan serve
-- Enjoy!!!
+
+In order to inspect mail notification provide working smtp credentials in .env file or set default mail driver to "log"
+  
+### Enjoy!!!
