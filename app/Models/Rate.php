@@ -32,7 +32,7 @@ class Rate extends Model
     public function calculateDiscountDollars($rawAmount): float|int|null
     {
         if ((int)$this->id === self::EURO) {
-            return $rawAmount / 100 * 2;
+            return $rawAmount / 100 * config('exchange_rates.discount');
         }
 
         return null;
