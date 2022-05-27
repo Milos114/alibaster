@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('rate_id')->constrained('rates');
             $table->decimal('surchange_amount', places: 2);
             $table->decimal('exchange_rate', places: 4);
-            $table->unsignedSmallInteger('amount_purchased');
+            $table->unsignedBigInteger('amount_purchased');
             $table->decimal('amount_in_usd', places: 2);
             $table->decimal('discount_percentage', places: 2)->nullable();
             $table->decimal('discount_amount', places: 2)->nullable();
