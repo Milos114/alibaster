@@ -6,16 +6,14 @@ use Illuminate\Contracts\Validation\Rule;
 
 class CheckEmptyValue implements Rule
 {
-    public $amount;
-
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct($amount)
+    public function __construct()
     {
-        $this->amount = $amount;
+        //
     }
 
     /**
@@ -27,7 +25,7 @@ class CheckEmptyValue implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->amount !== '';
+        return !str_starts_with($value, '0');
     }
 
     /**
@@ -37,6 +35,6 @@ class CheckEmptyValue implements Rule
      */
     public function message(): string
     {
-        return 'The Amount field is required.';
+        return 'The Amount field is not valid.';
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Rate;
+use App\Rules\CheckEmptyValue;
 use App\Services\Order\OrderPurchase;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -28,7 +29,7 @@ class ExchangeComponent extends Component
     protected function rules(): array
     {
         return [
-            'amount' => ['required', 'numeric'],
+            'amount' => ['required', 'numeric', 'min:10', new CheckEmptyValue],
             'currency' => ['required', 'numeric', Rule::in(Rate::EURO, Rate::GBP, Rate::JPY)],
         ];
     }
@@ -54,6 +55,8 @@ class ExchangeComponent extends Component
 
     public function purchase(): void
     {
+        $this->validate();
+
         OrderPurchase::process(amount: $this->amount, currency: $this->currency, usd: $this->result,
             surchargeDollars: $this->surchargeDollars, discountDollars: $this->discountDollars);
 

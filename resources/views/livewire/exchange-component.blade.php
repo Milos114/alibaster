@@ -20,7 +20,7 @@
                 </select>
                 @if($errors->has('currency'))<span class="text-danger">{{ $errors->first('currency') }}</span>@endif
             </div>
-            @if ($showResult && $amount !== '')
+            @if ($showResult && !$errors->count())
                 <div class="form-group col-md-6">
                     <label for="amount">USD (calculated surcharge{{(int)$currency === \App\Models\Rate::EURO ? ' and discount' : ''}})</label>
                     <div class="form-control" readonly>
@@ -29,7 +29,7 @@
                 </div>
             @endif
         </div>
-        <button wire:click.prevent="purchase" type="submit" class="btn btn-primary" {{$amount ? '' : 'disabled'}}>Purchase</button>
+        <button wire:click.prevent="purchase" type="submit" class="btn btn-primary" {{$errors->count() || !$amount ? 'disabled' : ''}}>Purchase</button>
     </form>
     <script>
         window.addEventListener('purchase:success', function (e) {
