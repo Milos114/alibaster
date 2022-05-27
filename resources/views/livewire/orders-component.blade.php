@@ -1,6 +1,6 @@
 <div>
     @if ($orders->count())
-        <h4>Last 5 purchases</h4>
+        <h4>Last 3 purchases</h4>
         <table class="table">
             <thead>
             <tr>
