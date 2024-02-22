@@ -9,6 +9,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class ExchangeComponent extends Component
@@ -34,6 +35,9 @@ class ExchangeComponent extends Component
         ];
     }
 
+    /**
+     * @throws ValidationException
+     */
     public function updated($propertyName): void
     {
         $this->validateOnly($propertyName);

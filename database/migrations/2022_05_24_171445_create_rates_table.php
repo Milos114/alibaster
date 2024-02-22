@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('currency');
             $table->decimal('exchange_rate', places: 4);
-            $table->decimal('surcharge', places: 2);
+            $table->decimal('surcharge');
             $table->timestamps();
         });
 
